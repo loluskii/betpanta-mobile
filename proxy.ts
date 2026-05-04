@@ -12,7 +12,7 @@ const PROTECTED = [
 /** Routes that authenticated users should not access */
 const AUTH_ONLY = ["/sign-in", "/sign-up"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get("BP-TOKEN")?.value;
   const isAuthenticated = Boolean(token);

@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import { ReactQueryProvider } from "@/lib/query/provider";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const openSans = Open_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "800"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "BetPanta — Place Your Bets",
@@ -21,7 +25,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${openSans.variable} h-full antialiased`}>
       <body className="h-full bg-background text-foreground">
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
